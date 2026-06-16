@@ -28,17 +28,7 @@ function Sidebar({ route, onRoute, onNewReview, counts }) {
       </div>
       <nav className="crc-nav">
         {item("inbox", "inbox", "Reviews", counts.inbox)}
-        {item("dashboard", "layout-dashboard", "Dashboard")}
-        {item("history", "history", "History")}
       </nav>
-      <div className="crc-side__sec">Repositories</div>
-      <nav className="crc-nav">
-        {item("repo1", "git-branch", "brixdorf/api")}
-        {item("repo2", "git-branch", "brixdorf/web")}
-      </nav>
-      <div className="crc-nav" style={{ marginTop: "auto" }}>
-        {item("settings", "settings", "Settings")}
-      </div>
       <div className="crc-side__user">
         <Avatar name="Priya Rao" size="sm" />
         <div>
