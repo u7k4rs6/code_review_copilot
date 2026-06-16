@@ -30,10 +30,9 @@ function Sidebar({ route, onRoute, onNewReview, counts }) {
         {item("inbox", "inbox", "Reviews", counts.inbox)}
       </nav>
       <div className="crc-side__user">
-        <Avatar name="Priya Rao" size="sm" />
+        <Avatar name="User" size="sm" />
         <div>
-          <b style={{ display: "block", lineHeight: 1.2 }}>Priya Rao</b>
-          <span>priyar</span>
+          <b style={{ display: "block", lineHeight: 1.2 }}>User</b>
         </div>
       </div>
     </aside>

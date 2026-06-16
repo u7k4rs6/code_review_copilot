@@ -61,7 +61,7 @@ function RiskSummaryRail({ riskSummary }) {
 function ReviewWorkspace({ pr, onBack, findingsData }) {
   const Icon = window.CRCIcon;
   const NS = window.CodeReviewCopilotDesignSystem_1910d8;
-  const { Button, FindingCard } = NS;
+  const { FindingCard } = NS;
 
   const findings = (findingsData && findingsData.findings) || [];
   const riskSummary = (findingsData && findingsData.riskSummary) || {};
@@ -84,9 +84,6 @@ function ReviewWorkspace({ pr, onBack, findingsData }) {
         <div className="crc-ws__titlerow">
           <Icon name="git-pull-request" size={22} style={{ color: "var(--signal-400)" }} />
           <span className="crc-ws__title">{pr.title}</span>
-          <div className="crc-ws__actions">
-            <Button variant="primary" leftIcon={<Icon name="git-merge" size={15} />}>Approve &amp; merge</Button>
-          </div>
         </div>
         <div className="crc-ws__chips">
           <span className="crc-chip"><Icon name="git-pull-request" size={13} />{pr.repo}</span>
