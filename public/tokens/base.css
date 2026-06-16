@@ -1,0 +1,65 @@
+/* ============================================================
+   BASE — Code Review Copilot · "Carbon & Acid"
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  font-weight: var(--weight-regular);
+  color: var(--text-body);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  color: var(--text-strong);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+p { margin: 0; }
+a { color: var(--text-link); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 2px; }
+code, kbd, samp, pre { font-family: var(--font-mono); }
+
+::selection { background: var(--acid-400); color: var(--ink-950); }
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-focus);
+  border-radius: var(--radius-sm);
+}
+
+.cr-tnum { font-variant-numeric: tabular-nums; }
+
+.cr-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.cr-serif { font-family: var(--font-serif); font-weight: 400; letter-spacing: 0; }
+.cr-serif-i { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+
+.cr-grid-bg {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.cr-dot-bg {
+  background-image: radial-gradient(circle at 1px 1px, var(--grid-line) 1.4px, transparent 0);
+  background-size: 22px 22px;
+}

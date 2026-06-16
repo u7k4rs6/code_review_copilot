@@ -1,0 +1,21 @@
+/* ============================================================
+   MOTION — Code Review Copilot
+   ============================================================ */
+
+:root {
+  --dur-instant: 80ms;
+  --dur-fast:    140ms;
+  --dur-base:    220ms;
+  --dur-slow:    340ms;
+  --dur-slower:  520ms;
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);
+  --ease-inout:    cubic-bezier(0.65, 0, 0.35, 1);
+
+  --transition-colors: color var(--dur-fast) var(--ease-standard),
+                       background-color var(--dur-fast) var(--ease-standard),
+                       border-color var(--dur-fast) var(--ease-standard);
+  --transition-transform: transform var(--dur-fast) var(--ease-out);
+}

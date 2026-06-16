@@ -1,0 +1,39 @@
+/* ============================================================
+   SPACING & RADII — Code Review Copilot · "Carbon & Acid"
+   ============================================================ */
+
+:root {
+  --space-0:  0;
+  --space-1:  2px;
+  --space-2:  4px;
+  --space-3:  6px;
+  --space-4:  8px;
+  --space-5:  10px;
+  --space-6:  12px;
+  --space-8:  16px;
+  --space-10: 20px;
+  --space-12: 24px;
+  --space-14: 28px;
+  --space-16: 32px;
+  --space-20: 40px;
+  --space-24: 48px;
+  --space-32: 64px;
+  --space-40: 80px;
+  --space-48: 96px;
+
+  --radius-xs:   2px;
+  --radius-sm:   3px;
+  --radius-md:   5px;
+  --radius-lg:   7px;
+  --radius-xl:   10px;
+  --radius-2xl:  14px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  --border-width: 1.5px;
+  --border-width-strong: 2px;
+
+  --width-prose: 66ch;
+  --width-content: 1080px;
+  --width-wide: 1340px;
+}

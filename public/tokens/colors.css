@@ -1,0 +1,146 @@
+/* ============================================================
+   COLORS — Code Review Copilot · "Carbon & Acid"
+   ============================================================ */
+
+:root {
+  --ink-950: #0B0A07;
+  --ink-900: #13110C;
+  --ink-850: #1A1711;
+  --ink-800: #221E16;
+  --ink-700: #2F2A1F;
+  --ink-600: #423B2C;
+  --ink-500: #5C5440;
+  --ink-400: #847B63;
+  --ink-300: #A89E82;
+  --ink-200: #C9C0A4;
+  --ink-150: #DBD2B6;
+  --ink-100: #E8E1CC;
+  --ink-50:  #F1ECDC;
+  --ink-25:  #F8F4E9;
+  --paper:   #FBF8F0;
+  --white:   #FFFFFF;
+
+  --acid-300: #E0FF82;
+  --acid-400: #CBFA52;
+  --acid-500: #AEE82F;
+  --acid-600: #84B814;
+  --acid-700: #5F8410;
+  --acid-800: #475F12;
+  --acid-900: #2E3D0E;
+
+  --signal-50:  #F0FBD6;
+  --signal-100: #E3F7AE;
+  --signal-200: #D2F178;
+  --signal-300: var(--acid-300);
+  --signal-400: var(--acid-400);
+  --signal-500: var(--acid-600);
+  --signal-600: var(--acid-700);
+  --signal-700: var(--acid-800);
+  --signal-900: var(--acid-900);
+
+  --sev-bug:          #FF5247;
+  --sev-bug-soft:     #FCE2DF;
+  --sev-security:     #FF9E1B;
+  --sev-security-soft:#FCEFD7;
+  --sev-perf:         #1FA8CC;
+  --sev-perf-soft:    #DCF0F6;
+  --sev-style:        #A063FF;
+  --sev-style-soft:   #EEE6FC;
+  --sev-suggest:      #12B488;
+  --sev-suggest-soft: #D6F3EA;
+
+  --risk-low:    #6FB011;
+  --risk-medium: #FF9E1B;
+  --risk-high:   #FF5247;
+
+  --diff-add-bg:    #EAF6CF;
+  --diff-add-line:  #6FB011;
+  --diff-add-text:  #3E5C0B;
+  --diff-del-bg:    #FCE4E0;
+  --diff-del-line:  #E5403A;
+  --diff-del-text:  #8E211D;
+  --diff-gutter:    #EFEADB;
+
+  --bg-app:        var(--ink-50);
+  --bg-canvas:     var(--ink-100);
+  --surface:       var(--paper);
+  --surface-raised:var(--white);
+  --surface-sunken:var(--ink-50);
+  --surface-hover: var(--ink-50);
+  --surface-inset: var(--ink-100);
+
+  --text-strong:   var(--ink-950);
+  --text-body:     var(--ink-700);
+  --text-muted:    var(--ink-500);
+  --text-subtle:   var(--ink-400);
+  --text-on-brand: var(--ink-950);
+  --text-link:     var(--acid-700);
+
+  --border-subtle: var(--ink-150);
+  --border:        var(--ink-200);
+  --border-strong: var(--ink-900);
+  --border-focus:  var(--ink-950);
+
+  --brand:         var(--acid-500);
+  --brand-hover:   var(--acid-400);
+  --brand-press:   var(--acid-600);
+  --brand-soft:    var(--acid-300);
+  --brand-on-soft: var(--acid-800);
+  --brand-text:    var(--acid-700);
+
+  --focus-ring:    color-mix(in srgb, var(--ink-950) 30%, transparent);
+  --code-bg:       var(--ink-900);
+  --code-text:     var(--ink-50);
+  --grid-line:     color-mix(in srgb, var(--ink-950) 6%, transparent);
+}
+
+[data-theme="dark"] {
+  --bg-app:        var(--ink-900);
+  --bg-canvas:     var(--ink-850);
+  --surface:       var(--ink-850);
+  --surface-raised:var(--ink-800);
+  --surface-sunken:var(--ink-900);
+  --surface-hover: var(--ink-800);
+  --surface-inset: var(--ink-800);
+
+  --text-strong:   #F6F2E6;
+  --text-body:     var(--ink-200);
+  --text-muted:    var(--ink-300);
+  --text-subtle:   var(--ink-400);
+  --text-on-brand: var(--ink-950);
+  --text-link:     var(--acid-400);
+
+  --border-subtle: color-mix(in srgb, var(--ink-50) 9%, transparent);
+  --border:        color-mix(in srgb, var(--ink-50) 14%, transparent);
+  --border-strong: color-mix(in srgb, var(--acid-400) 60%, var(--ink-50));
+  --border-focus:  var(--acid-400);
+
+  --brand:         var(--acid-400);
+  --brand-hover:   var(--acid-300);
+  --brand-press:   var(--acid-500);
+  --brand-soft:    color-mix(in srgb, var(--acid-400) 18%, transparent);
+  --brand-on-soft: var(--acid-300);
+  --brand-text:    var(--acid-400);
+
+  --focus-ring:    color-mix(in srgb, var(--acid-400) 50%, transparent);
+  --code-bg:       var(--ink-950);
+  --code-text:     var(--ink-150);
+
+  --signal-500:    var(--acid-400);
+  --signal-600:    var(--acid-500);
+  --grid-line:     color-mix(in srgb, var(--ink-50) 5%, transparent);
+
+  --sev-bug-soft:     color-mix(in srgb, var(--sev-bug) 20%, transparent);
+  --sev-security-soft:color-mix(in srgb, var(--sev-security) 20%, transparent);
+  --sev-perf-soft:    color-mix(in srgb, var(--sev-perf) 22%, transparent);
+  --sev-style-soft:   color-mix(in srgb, var(--sev-style) 22%, transparent);
+  --sev-suggest-soft: color-mix(in srgb, var(--sev-suggest) 22%, transparent);
+
+  --diff-add-bg:   color-mix(in srgb, var(--acid-400) 12%, transparent);
+  --diff-add-line: var(--acid-400);
+  --diff-add-text: var(--acid-300);
+  --diff-del-bg:   color-mix(in srgb, var(--sev-bug) 15%, transparent);
+  --diff-del-line: var(--sev-bug);
+  --diff-del-text: #FFB3AE;
+  --diff-gutter:   var(--ink-900);
+}
