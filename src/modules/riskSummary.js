@@ -53,5 +53,17 @@ export async function generateRiskSummary(parsedDiff, reviewComments) {
 
   const data = await res.json();
   const raw = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "{}";
-  return JSON.parse(stripFences(raw));
+  console.log("Gemini risk summary raw response:", raw);
+  try {
+    return JSON.parse(stripFences(raw));
+  } catch (err) {
+    console.error("Failed to parse risk summary response:", err.message);
+    return {
+      qualityScore: 5,
+      riskLevel: "medium",
+      highRiskChanges: [],
+      mergeRecommendation: "Needs work",
+      rationale: "Unable to parse AI response. Manual review recommended.",
+    };
+  }
 }
