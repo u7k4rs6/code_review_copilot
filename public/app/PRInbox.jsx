@@ -38,7 +38,7 @@ function PRRow({ pr, onOpen }) {
           ? <><Icon name="message-square" size={14} /> {pr.findings} findings</>
           : <span style={{ color: "var(--text-subtle)" }}>&mdash;</span>}
       </div>
-      <div className="crc-prrow__updated">{pr.updated}</div>
+      <div className="crc-prrow__updated">{formatPRDate(pr.updated)}</div>
     </div>
   );
 }
@@ -53,3 +53,9 @@ function PRInbox({ prs, onOpen }) {
   );
 }
 window.PRInbox = PRInbox;
+
+function formatPRDate(dateStr) {
+  if (!dateStr) return '—';
+  return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
