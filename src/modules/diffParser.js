@@ -65,3 +65,16 @@ export function parseDiff(rawDiff) {
   if (current) files.push(current);
   return files;
 }
+
+export function getDiffStats(parsedDiff) {
+  return parsedDiff.reduce(
+    (acc, file) => {
+      for (const line of file.lines) {
+        if (line.type === 'add') acc.additions++;
+        else if (line.type === 'remove') acc.deletions++;
+      }
+      return acc;
+    },
+    { additions: 0, deletions: 0, files: parsedDiff.length }
+  );
+}
