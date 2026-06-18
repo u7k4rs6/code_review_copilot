@@ -144,3 +144,7 @@
   --diff-del-text: #FFB3AE;
   --diff-gutter:   var(--ink-900);
 }
+
+--color-surface-overlay: rgba(0, 0, 0, 0.45);
+--color-text-muted-strong: #6b7280;
+--color-border-focus: #6366f1;
