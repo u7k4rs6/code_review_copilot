@@ -1,5 +1,11 @@
+/** GitHub REST API base URL */
 const BASE = "https://api.github.com";
 
+/**
+ * Builds standard headers for GitHub API requests.
+ * @param {string} accept - The Accept header value (e.g., diff format or JSON)
+ * @returns {{Authorization: string, Accept: string, "User-Agent": string}} Headers object
+ */
 function baseHeaders(accept) {
   return {
     Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
@@ -8,6 +14,14 @@ function baseHeaders(accept) {
   };
 }
 
+/**
+ * Fetches the raw unified diff for a pull request.
+ * @param {string} owner - Repository owner (GitHub username or org)
+ * @param {string} repo - Repository name
+ * @param {string} pullNumber - Pull request number
+ * @returns {Promise<string>} Raw diff text
+ * @throws {Error} If the GitHub API returns a non-OK response
+ */
 export async function fetchPRDiff(owner, repo, pullNumber) {
   const res = await fetch(
     `${BASE}/repos/${owner}/${repo}/pulls/${pullNumber}`,
@@ -20,6 +34,14 @@ export async function fetchPRDiff(owner, repo, pullNumber) {
   return res.text();
 }
 
+/**
+ * Fetches the list of files changed in a pull request.
+ * @param {string} owner - Repository owner
+ * @param {string} repo - Repository name
+ * @param {string} pullNumber - Pull request number
+ * @returns {Promise<Array>} Array of file objects from GitHub API
+ * @throws {Error} If the GitHub API returns a non-OK response
+ */
 export async function fetchPRFiles(owner, repo, pullNumber) {
   const res = await fetch(
     `${BASE}/repos/${owner}/${repo}/pulls/${pullNumber}/files`,
@@ -32,6 +54,15 @@ export async function fetchPRFiles(owner, repo, pullNumber) {
   return res.json();
 }
 
+/**
+ * Fetches the latest commit SHA (head) of a pull request.
+ * This is needed when posting review comments to a specific commit.
+ * @param {string} owner - Repository owner
+ * @param {string} repo - Repository name
+ * @param {string} pullNumber - Pull request number
+ * @returns {Promise<string>} The head commit SHA
+ * @throws {Error} If the GitHub API returns a non-OK response
+ */
 export async function fetchCommitId(owner, repo, pullNumber) {
   const res = await fetch(
     `${BASE}/repos/${owner}/${repo}/pulls/${pullNumber}`,
@@ -45,6 +76,17 @@ export async function fetchCommitId(owner, repo, pullNumber) {
   return data.head.sha;
 }
 
+/**
+ * Posts AI-generated review comments as an inline review on the pull request.
+ * Each comment is formatted with severity, explanation, and suggested fix.
+ * @param {string} owner - Repository owner
+ * @param {string} repo - Repository name
+ * @param {string} pullNumber - Pull request number
+ * @param {string} commitId - The commit SHA to attach comments to
+ * @param {{comments: Array, summary: string}} comments - Review comments and summary text
+ * @returns {Promise<Object>} GitHub API response for the created review
+ * @throws {Error} If the GitHub API returns a non-OK response
+ */
 export async function postReviewComments(
   owner,
   repo,

@@ -1,5 +1,12 @@
+/** Gemini API endpoint for risk summary generation */
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent`;
 
+/**
+ * Strips markdown code fences from Gemini's response text.
+ * Removes opening/closing ``` markers that the model sometimes adds.
+ * @param {string} text - Raw text response from Gemini API
+ * @returns {string} Cleaned text with code fences removed
+ */
 function stripFences(text) {
   return text
     .replace(/^```(?:json)?\n?/m, "")
@@ -7,6 +14,15 @@ function stripFences(text) {
     .trim();
 }
 
+/**
+ * Generates a risk summary for a pull request using Gemini AI.
+ * Analyzes the changed files and review findings to produce a quality score,
+ * risk level, and merge recommendation.
+ * @param {Array<{filename: string, changes: Array}>} parsedDiff - Parsed diff from diffParser
+ * @param {Array<{severity: string, filename: string, line: number, issue: string}>} reviewComments - AI review findings
+ * @returns {Promise<{qualityScore: number, riskLevel: string, highRiskChanges: string[], mergeRecommendation: string, rationale: string}>}
+ * @throws {Error} If the Gemini API returns a non-OK response
+ */
 export async function generateRiskSummary(parsedDiff, reviewComments) {
   const fileList = parsedDiff.map((f) => f.filename).join(", ");
   const commentsSummary = reviewComments

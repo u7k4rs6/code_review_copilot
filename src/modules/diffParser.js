@@ -1,3 +1,17 @@
+/**
+ * Parses a raw unified diff string into a structured array of file changes.
+ * Handles the standard unified diff format output by git and the GitHub API.
+ *
+ * Each file object contains the filename and an array of changes, where each
+ * change has a type ("add", "remove", or "context"), a line number, and content.
+ *
+ * @param {string} rawDiff - Raw unified diff text (e.g., from `git diff` or GitHub API)
+ * @returns {Array<{filename: string, changes: Array<{type: "add"|"remove"|"context", lineNumber: number, content: string}>}>}
+ *
+ * @example
+ * const diff = parseDiff(rawDiffString);
+ * // Returns: [{ filename: "src/index.js", changes: [{ type: "add", lineNumber: 5, content: "const x = 1;" }] }]
+ */
 export function parseDiff(rawDiff) {
   const lines = rawDiff.split("\n");
   const files = [];

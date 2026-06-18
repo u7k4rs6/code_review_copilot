@@ -1,5 +1,12 @@
+/** Gemini API endpoint for AI-powered code review analysis */
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent`;
 
+/**
+ * Converts a parsed diff into a human-readable text format for the AI prompt.
+ * Filters out context lines and formats additions/removals with line numbers.
+ * @param {Array<{filename: string, changes: Array}>} parsedDiff - Parsed diff output from diffParser
+ * @returns {string} Formatted diff text suitable for the Gemini prompt
+ */
 function buildDiffText(parsedDiff) {
   return parsedDiff
     .map((file) => {
@@ -15,6 +22,12 @@ function buildDiffText(parsedDiff) {
     .join("\n\n");
 }
 
+/**
+ * Strips markdown code fences and extracts the JSON array from Gemini's response.
+ * Finds the outermost [ ] brackets to handle cases where the model wraps output in markdown.
+ * @param {string} text - Raw text response from Gemini API
+ * @returns {string} Cleaned JSON array string, or "[]" if no array is found
+ */
 function stripFences(text) {
   const start = text.indexOf("[");
   const end = text.lastIndexOf("]");
@@ -22,6 +35,13 @@ function stripFences(text) {
   return text.slice(start, end + 1);
 }
 
+/**
+ * Sends a parsed diff to Gemini AI for code review analysis.
+ * Returns deduplicated review comments categorized by severity.
+ * @param {Array<{filename: string, changes: Array}>} parsedDiff - Parsed diff from diffParser
+ * @returns {Promise<Array<{filename: string, line: number, severity: string, issue: string, why: string, fix: string, explanation: string}>>}
+ * @throws {Error} If the Gemini API returns a non-OK response
+ */
 export async function reviewDiff(parsedDiff) {
   const diffText = buildDiffText(parsedDiff);
 
