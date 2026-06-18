@@ -15,7 +15,12 @@ function buildDiffText(parsedDiff) {
     .join("\n\n");
 }
 
-
+function stripFences(text) {
+  const start = text.indexOf("[");
+  const end = text.lastIndexOf("]");
+  if (start === -1 || end === -1) return "[]";
+  return text.slice(start, end + 1);
+}
 
 export async function reviewDiff(parsedDiff) {
   const diffText = buildDiffText(parsedDiff);
