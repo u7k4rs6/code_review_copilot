@@ -1,4 +1,15 @@
 import "dotenv/config";
+
+// Validate required environment variables at startup
+const REQUIRED_ENV = ["GITHUB_TOKEN", "GEMINI_API_KEY"];
+const missing = REQUIRED_ENV.filter((key) => !process.env[key]);
+if (missing.length) {
+  console.error(
+    `Missing required environment variables: ${missing.join(", ")}`,
+  );
+  console.error("Copy .env.example to .env and fill in your credentials.");
+  process.exit(1);
+}
 import express from "express";
 import cors from "cors";
 import { fileURLToPath } from "url";
