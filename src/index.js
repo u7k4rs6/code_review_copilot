@@ -15,10 +15,6 @@ app.use(express.static(join(__dirname, "../public")));
 
 app.use("/api/review", reviewRouter);
 
-app.use((_req, res) => {
-  res.status(404).json({ error: "Not found" });
-});
-
 app.use((err, _req, res, _next) => {
   console.error(err);
   res.status(500).json({ error: err.message || "Internal server error" });
