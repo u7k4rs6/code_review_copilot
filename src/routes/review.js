@@ -16,16 +16,7 @@ const PR_URL_RE = /^https:\/\/github\.com\/([^/]+)\/([^/]+)\/pull\/(\d+)/;
 router.post("/", async (req, res) => {
   const { prUrl } = req.body;
 
-  if (!prUrl) {
-    return res.status(400).json({ error: "prUrl is required" });
-  }
-
-  const match = prUrl.match(PR_URL_RE);
-  if (!match) {
-    return res.status(400).json({
-      error: "Invalid prUrl. Expected: https://github.com/owner/repo/pull/123",
-    });
-  }
+  
 
   const [, owner, repo, pullNumber] = match;
 
