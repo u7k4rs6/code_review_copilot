@@ -1,4 +1,4 @@
-# 🔍 Code Review Copilot
+# Code Review Copilot
 
 > AI-powered code review for GitHub pull requests — automated bug detection, security analysis, and merge recommendations powered by Google Gemini.
 
@@ -6,7 +6,7 @@ Code Review Copilot analyzes GitHub pull requests and posts inline review commen
 
 ---
 
-## ✨ Features
+## Features
 
 - **Automated PR analysis** — Submit a pull request URL and get a full review in seconds.
 - **Severity-categorized comments** — Issues tagged as `bug`, `security`, `performance`, `style`, or `suggestion`.
@@ -16,7 +16,7 @@ Code Review Copilot analyzes GitHub pull requests and posts inline review commen
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 ```
 PR URL
@@ -35,7 +35,7 @@ PR URL
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
 | Requirement | Notes |
 |---|---|
@@ -45,7 +45,7 @@ PR URL
 
 ---
 
-## 🚀 Setup
+## Setup
 
 **1. Clone the repository**
 
@@ -76,7 +76,7 @@ GEMINI_API_KEY=your_gemini_api_key
 
 ---
 
-## ▶️ Running
+## Running
 
 ```bash
 # Development (auto-reload on file changes)
@@ -90,7 +90,7 @@ The server starts at **`http://localhost:3000`** by default.
 
 ---
 
-## 📡 API Reference
+## API Reference
 
 ### `GET /`
 
@@ -140,7 +140,7 @@ Reviews a pull request.
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 code-review-copilot/
@@ -168,7 +168,7 @@ code-review-copilot/
 
 ---
 
-## ☁️ Deployment
+## Deployment
 
 The project includes a `vercel.json` configuration for [Vercel](https://vercel.com):
 
@@ -178,7 +178,7 @@ The project includes a `vercel.json` configuration for [Vercel](https://vercel.c
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
